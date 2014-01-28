@@ -11,8 +11,9 @@
 
 @interface ViewController ()
 
-@property (strong, nonatomic) UITextField *playerOneName;
-@property (strong, nonatomic) UITextField *payerTwoName;
+@property (nonatomic) UITextField *playerOneName;
+@property (nonatomic) UITextField *payerTwoName;
+@property (nonatomic) DartNumberViewController *dartNumberViewController;
 
 @end
 
@@ -32,20 +33,11 @@
     self.playerOneName.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.playerOneName];
     
-    DartNumberViewController *dartNumberViewController = [[DartNumberViewController alloc] init];
-    dartNumberViewController.dartNumberText = @"45";
-    dartNumberViewController.dartNumber = 45;
-    dartNumberViewController.view.frame = self.view.bounds;
-    [self.view addSubview:dartNumberViewController.view];
-    
-//    dartNumberViewController.view.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.dartNumberViewController = [[DartNumberViewController alloc] init];
+    self.dartNumberViewController.dartNumberText = @"45";
+    self.dartNumberViewController.dartNumber = 45;
+    self.dartNumberViewController.view.frame = CGRectMake(75.0, 75.0, 300.0, 100.0);
+    [self.view addSubview:self.dartNumberViewController.view];
 }
 
 @end
