@@ -13,7 +13,14 @@
 
 @property (nonatomic) UITextField *playerOneName;
 @property (nonatomic) UITextField *payerTwoName;
-@property (nonatomic) DartNumberViewController *dartNumberViewController;
+@property (nonatomic) DartNumberViewController *dartTwentyViewController;
+@property (nonatomic) DartNumberViewController *dartNinteenViewController;
+@property (nonatomic) DartNumberViewController *dartEighteenViewController;
+@property (nonatomic) DartNumberViewController *dartSeventeenViewController;
+@property (nonatomic) DartNumberViewController *dartSixteenViewController;
+@property (nonatomic) DartNumberViewController *dartFifteenViewController;
+@property (nonatomic) DartNumberViewController *dartBullsEyeViewController;
+
 
 @end
 
@@ -33,11 +40,47 @@
     self.playerOneName.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.playerOneName];
     
-    self.dartNumberViewController = [[DartNumberViewController alloc] init];
-    self.dartNumberViewController.dartNumberText = @"45";
-    self.dartNumberViewController.dartNumber = 45;
-    self.dartNumberViewController.view.frame = CGRectMake(75.0, 75.0, 300.0, 100.0);
-    [self.view addSubview:self.dartNumberViewController.view];
+    self.dartTwentyViewController = [[DartNumberViewController alloc] init];
+    self.dartTwentyViewController.dartNumberText = @"20";
+    self.dartTwentyViewController.dartNumber = 20;
+    self.dartTwentyViewController.view.frame = CGRectMake(46.0, 75.0, 676.0, 100.0);
+    [self.view addSubview:self.dartTwentyViewController.view];
+    
+    self.dartNinteenViewController = [[DartNumberViewController alloc] init];
+    self.dartNinteenViewController.dartNumberText = @"19";
+    self.dartNinteenViewController.dartNumber = 19;
+    self.dartNinteenViewController.view.frame = CGRectMake(46.0, 200.0, 676.0, 100.0);
+    [self.view addSubview:self.dartNinteenViewController.view];
+    
+    self.dartEighteenViewController = [[DartNumberViewController alloc] init];
+    self.dartEighteenViewController.dartNumberText = @"18";
+    self.dartEighteenViewController.dartNumber = 18;
+    self.dartEighteenViewController.view.frame = CGRectMake(46.0, 325.0, 676.0, 100.0);
+    [self.view addSubview:self.dartEighteenViewController.view];
+    
+    self.dartSeventeenViewController = [[DartNumberViewController alloc] init];
+    self.dartSeventeenViewController.dartNumberText = @"17";
+    self.dartSeventeenViewController.dartNumber = 17;
+    self.dartSeventeenViewController.view.frame = CGRectMake(46.0, 450.0, 676.0, 100.0);
+    [self.view addSubview:self.dartSeventeenViewController.view];
+    
+    self.dartSixteenViewController = [[DartNumberViewController alloc] init];
+    self.dartSixteenViewController.dartNumberText = @"16";
+    self.dartSixteenViewController.dartNumber = 16;
+    self.dartSixteenViewController.view.frame = CGRectMake(46.0, 575.0, 676.0, 100.0);
+    [self.view addSubview:self.dartSixteenViewController.view];
+    
+    self.dartFifteenViewController = [[DartNumberViewController alloc] init];
+    self.dartFifteenViewController.dartNumberText = @"15";
+    self.dartFifteenViewController.dartNumber = 15;
+    self.dartFifteenViewController.view.frame = CGRectMake(46.0, 700.0, 676.0, 100.0);
+    [self.view addSubview:self.dartFifteenViewController.view];
+    
+    self.dartBullsEyeViewController = [[DartNumberViewController alloc] init];
+    self.dartBullsEyeViewController.dartNumberText = @"B";
+    self.dartBullsEyeViewController.dartNumber = 25;
+    self.dartBullsEyeViewController.view.frame = CGRectMake(46.0, 825.0, 676.0, 100.0);
+    [self.view addSubview:self.dartBullsEyeViewController.view];
 }
 
 @end
