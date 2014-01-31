@@ -150,8 +150,8 @@
             [self.playerOneMinusButton setTitle:[NSString stringWithFormat:@"%d", self.playerOneNumberScore] forState:UIControlStateNormal];
             
             NSDictionary *playerOneScoreDic = @{@"score": [NSNumber numberWithInt:self.dartNumber], @"closedStatus": self.playerOneClosedStatus};
-            
             [[NSNotificationCenter defaultCenter] postNotificationName:@"playerOneScoreUP" object:self userInfo:playerOneScoreDic];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerOneClosedNumber" object:self userInfo:playerOneScoreDic];
             
         }
     
@@ -166,6 +166,11 @@
         [self.playerTwoAddButton setTitle:[NSString stringWithFormat:@"X"] forState:UIControlStateNormal];
     } else if ([self.playerTwoAddButton.titleLabel.text isEqualToString:@"X"]) {
         [self.playerTwoAddButton setTitle:[NSString stringWithFormat:@"☺︎"] forState:UIControlStateNormal];
+        self.playerTwoClosedStatus = @1;
+        
+        NSDictionary *playerTwoScoreDic = @{@"score": [NSNumber numberWithInt:self.dartNumber], @"closedStatus": self.playerTwoClosedStatus};
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"playerTwoClosedNumber" object:self userInfo:playerTwoScoreDic];
+        
     } else if ([self.playerTwoAddButton.titleLabel.text isEqualToString:@"☺︎"]) {
         if ([self.playerOneAddButton.titleLabel.text isEqualToString:@"☺︎"]) {
             NSLog(@"Ha Ha");
@@ -174,8 +179,8 @@
             [self.playerTwoMinusButton setTitle:[NSString stringWithFormat:@"%d", self.playerTwoNumberScore] forState:UIControlStateNormal];
             
             NSDictionary *playerTwoScoreDic = @{@"score": [NSNumber numberWithInt:self.dartNumber]};
-            
             [[NSNotificationCenter defaultCenter] postNotificationName:@"playerTwoScoreUP" object:self userInfo:playerTwoScoreDic];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerTwoClosedNumber" object:self userInfo:playerTwoScoreDic];
         }
     }
 }

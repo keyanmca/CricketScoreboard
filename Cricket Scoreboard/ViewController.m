@@ -39,6 +39,14 @@
 @property (nonatomic) NSNumber *playerOne15ClosedStatus;
 @property (nonatomic) NSNumber *playerOne25ClosedStatus;
 
+@property (nonatomic) NSNumber *playerTwo20ClosedStatus;
+@property (nonatomic) NSNumber *playerTwo19ClosedStatus;
+@property (nonatomic) NSNumber *playerTwo18ClosedStatus;
+@property (nonatomic) NSNumber *playerTwo17ClosedStatus;
+@property (nonatomic) NSNumber *playerTwo16ClosedStatus;
+@property (nonatomic) NSNumber *playerTwo15ClosedStatus;
+@property (nonatomic) NSNumber *playerTwo25ClosedStatus;
+
 
 
 
@@ -73,6 +81,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(playerOneClosed:)
                                                  name:@"playerOneClosedNumber"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(playerTwoClosed:)
+                                                 name:@"playerTwoClosedNumber"
                                                object:nil];
     
     self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0];
@@ -273,48 +286,132 @@
         if ([n integerValue] == 20 && [closedStatus integerValue] == 1){
             self.playerOne20ClosedStatus = @1;
             if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
-                NSLog(@"Player One Wins");
+                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
+                    NSLog(@"Player One Wins");
+                }
             }
         } else if ([n integerValue] == 19 && [closedStatus integerValue] == 1){
             self.playerOne19ClosedStatus = @1;
             if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
-                NSLog(@"Player One Wins");
+                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
+                    NSLog(@"Player One Wins");
+                }
             }
 
         } else if ([n integerValue] == 18 && [closedStatus integerValue] == 1){
             self.playerOne18ClosedStatus = @1;
             if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
-                NSLog(@"Player One Wins");
+                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
+                    NSLog(@"Player One Wins");
+                }
             }
 
         } else if ([n integerValue] == 17 && [closedStatus integerValue] == 1){
             self.playerOne17ClosedStatus = @1;
             if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
-                NSLog(@"Player One Wins");
+                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
+                    NSLog(@"Player One Wins");
+                }
             }
 
         } else if ([n integerValue] == 16 && [closedStatus integerValue] == 1){
             self.playerOne16ClosedStatus = @1;
             if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
-                NSLog(@"Player One Wins");
+                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
+                    NSLog(@"Player One Wins");
+                }
             }
 
         } else if ([n integerValue] == 15 && [closedStatus integerValue] == 1){
             self.playerOne15ClosedStatus = @1;
             if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
-                NSLog(@"Player One Wins");
+                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
+                    NSLog(@"Player One Wins");
+                }
             }
 
         } else if ([n integerValue] == 25 && [closedStatus integerValue] == 1){
             self.playerOne25ClosedStatus = @1;
             if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
-                NSLog(@"Player One Wins");
+                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
+                    NSLog(@"Player One Wins");
+                }
             }
 
         }
-                   
+        
     }
 }
+    
+- (void)playerTwoClosed:(NSNotification *)notification {
+    NSDictionary *theData = notification.userInfo;
+    if (theData != Nil) {
+        NSNumber *n = [theData objectForKey:@"score"];
+        NSNumber *closedStatus = [theData objectForKey:@"closedStatus"];
+        if ([n integerValue] == 20 && [closedStatus integerValue] == 1){
+            self.playerTwo20ClosedStatus = @1;
+            if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
+                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
+                        NSLog(@"Player Two Wins");
+                    }
+                }
+        } else if ([n integerValue] == 19 && [closedStatus integerValue] == 1){
+                self.playerTwo19ClosedStatus = @1;
+                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
+                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
+                        NSLog(@"Player Two Wins");
+                    }
+                }
+                
+        } else if ([n integerValue] == 18 && [closedStatus integerValue] == 1){
+                self.playerTwo18ClosedStatus = @1;
+                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
+                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
+                        NSLog(@"Player Two Wins");
+                    }
+                }
+                
+        } else if ([n integerValue] == 17 && [closedStatus integerValue] == 1){
+                self.playerTwo17ClosedStatus = @1;
+                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
+                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
+                        NSLog(@"Player Two Wins");
+                    }
+                }
+                
+        } else if ([n integerValue] == 16 && [closedStatus integerValue] == 1){
+                self.playerTwo16ClosedStatus = @1;
+                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
+                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
+                        NSLog(@"Player Two Wins");
+                    }
+                }
+                
+        } else if ([n integerValue] == 15 && [closedStatus integerValue] == 1){
+                self.playerTwo15ClosedStatus = @1;
+                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
+                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
+                        NSLog(@"Player Two Wins");
+                    }
+                }
+                
+        } else if ([n integerValue] == 25 && [closedStatus integerValue] == 1){
+                self.playerTwo25ClosedStatus = @1;
+                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
+                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
+                        NSLog(@"Player Two Wins");
+                    }
+                }
+                
+            }
+            
+        }
+    }
+    
+
+    
+@end
+
 
     
 
@@ -337,4 +434,3 @@
     
     //}
     
-@end

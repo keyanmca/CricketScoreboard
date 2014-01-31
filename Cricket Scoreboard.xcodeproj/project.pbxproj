@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC6B45BF189C21A1005B54C4 /* DartNumberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6B45BE189C21A1005B54C4 /* DartNumberModel.m */; };
 		FC8D542B1898338000EA0C59 /* DartNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8D542A1898338000EA0C59 /* DartNumberViewController.m */; };
 		FCDC88FA18931F8D00EEC958 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC88F918931F8D00EEC958 /* Foundation.framework */; };
 		FCDC88FC18931F8D00EEC958 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC88FB18931F8D00EEC958 /* CoreGraphics.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC6B45BD189C21A1005B54C4 /* DartNumberModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DartNumberModel.h; sourceTree = "<group>"; };
+		FC6B45BE189C21A1005B54C4 /* DartNumberModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DartNumberModel.m; sourceTree = "<group>"; };
 		FC8D54291898338000EA0C59 /* DartNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DartNumberViewController.h; sourceTree = "<group>"; };
 		FC8D542A1898338000EA0C59 /* DartNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DartNumberViewController.m; sourceTree = "<group>"; };
 		FCDC88F618931F8D00EEC958 /* Cricket Scoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cricket Scoreboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +125,8 @@
 				FCDC890F18931F8D00EEC958 /* ViewController.m */,
 				FC8D54291898338000EA0C59 /* DartNumberViewController.h */,
 				FC8D542A1898338000EA0C59 /* DartNumberViewController.m */,
+				FC6B45BD189C21A1005B54C4 /* DartNumberModel.h */,
+				FC6B45BE189C21A1005B54C4 /* DartNumberModel.m */,
 				FCDC891118931F8D00EEC958 /* Images.xcassets */,
 				FCDC890018931F8D00EEC958 /* Supporting Files */,
 			);
@@ -255,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC8D542B1898338000EA0C59 /* DartNumberViewController.m in Sources */,
+				FC6B45BF189C21A1005B54C4 /* DartNumberModel.m in Sources */,
 				FCDC891018931F8D00EEC958 /* ViewController.m in Sources */,
 				FCDC890A18931F8D00EEC958 /* AppDelegate.m in Sources */,
 				FCDC890618931F8D00EEC958 /* main.m in Sources */,
