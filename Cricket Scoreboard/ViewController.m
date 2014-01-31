@@ -59,34 +59,10 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updatePlayerOneScore:)
-                                                 name:@"playerOneScoreUP"
+                                             selector:@selector(updateScoreTotals)
+                                                 name:@"PlayerStatusChanged"
                                                object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updatePlayerTwoScore:)
-                                                 name:@"playerTwoScoreUP"
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(decreasePlayerOneScore:)
-                                                 name:@"playerOneScoreDown"
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(decreasePlayerTwoScore:)
-                                                 name:@"playerTwoScoreDown"
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(playerOneClosed:)
-                                                 name:@"playerOneClosedNumber"
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(playerTwoClosed:)
-                                                 name:@"playerTwoClosedNumber"
-                                               object:nil];
     
     self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -239,178 +215,208 @@
     
 }
 
-- (void)updatePlayerOneScore:(NSNotification *)notification {
-    NSDictionary *theData = notification.userInfo;
-    if (theData != nil) {
-        NSNumber *n = [theData objectForKey:@"score"];
-        NSInteger newPlayerOneScore = [self.playerOneScore integerValue] + [n integerValue];
-        self.playerOneScore = @(newPlayerOneScore);
-        self.playerOneScoreLabel.text = [NSString stringWithFormat:@"%@", self.playerOneScore];
-    }
+//- (void)updatePlayerOneScore:(NSNotification *)notification {
+//    NSDictionary *theData = notification.userInfo;
+//    if (theData != nil) {
+//        NSNumber *n = [theData objectForKey:@"score"];
+//        NSInteger newPlayerOneScore = [self.playerOneScore integerValue] + [n integerValue];
+//        self.playerOneScore = @(newPlayerOneScore);
+//        self.playerOneScoreLabel.text = [NSString stringWithFormat:@"%@", self.playerOneScore];
+//    }
+//}
+//
+//- (void)updatePlayerTwoScore:(NSNotification *)notification {
+//    NSDictionary *theData = notification.userInfo;
+//    if (theData != nil) {
+//        NSNumber *n = [theData objectForKey:@"score"];
+//        NSInteger newPlayerOneScore = [self.playerTwoScore integerValue] + [n integerValue];
+//        self.playerTwoScore = @(newPlayerOneScore);
+//        self.playerTwoScoreLabel.text = [NSString stringWithFormat:@"%@", self.playerTwoScore];
+//    }
+//}
+//
+//- (void)decreasePlayerOneScore:(NSNotification *)notification {
+//    NSDictionary *theData = notification.userInfo;
+//    if (theData != nil) {
+//        NSNumber *n = [theData objectForKey:@"score"];
+//        NSInteger newPlayerOneScore = [self.playerOneScore integerValue] - [n integerValue];
+//        self.playerOneScore = @(newPlayerOneScore);
+//        self.playerOneScoreLabel.text = [NSString stringWithFormat:@"%@", self.playerOneScore];
+//    }
+//}
+//
+//
+//- (void)decreasePlayerTwoScore:(NSNotification *)notification {
+//    NSDictionary *theData = notification.userInfo;
+//    if (theData != nil) {
+//        NSNumber *n = [theData objectForKey:@"score"];
+//        NSInteger newPlayerOneScore = [self.playerTwoScore integerValue] - [n integerValue];
+//        self.playerTwoScore = @(newPlayerOneScore);
+//        self.playerTwoScoreLabel.text = [NSString stringWithFormat:@"%@", self.playerTwoScore];
+//    }
+//}
+
+//- (void)playerOneClosed:(NSNotification *)notification {
+//    NSDictionary *theData = notification.userInfo;
+//    if (theData != Nil) {
+//        NSNumber *n = [theData objectForKey:@"score"];
+//        NSNumber *closedStatus = [theData objectForKey:@"closedStatus"];
+//        if ([n integerValue] == 20 && [closedStatus integerValue] == 1){
+//            self.playerOne20ClosedStatus = @1;
+//            if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
+//                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
+//                    NSLog(@"Player One Wins");
+//                }
+//            }
+//        } else if ([n integerValue] == 19 && [closedStatus integerValue] == 1){
+//            self.playerOne19ClosedStatus = @1;
+//            if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
+//                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
+//                    NSLog(@"Player One Wins");
+//                }
+//            }
+//
+//        } else if ([n integerValue] == 18 && [closedStatus integerValue] == 1){
+//            self.playerOne18ClosedStatus = @1;
+//            if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
+//                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
+//                    NSLog(@"Player One Wins");
+//                }
+//            }
+//
+//        } else if ([n integerValue] == 17 && [closedStatus integerValue] == 1){
+//            self.playerOne17ClosedStatus = @1;
+//            if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
+//                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
+//                    NSLog(@"Player One Wins");
+//                }
+//            }
+//
+//        } else if ([n integerValue] == 16 && [closedStatus integerValue] == 1){
+//            self.playerOne16ClosedStatus = @1;
+//            if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
+//                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
+//                    NSLog(@"Player One Wins");
+//                }
+//            }
+//
+//        } else if ([n integerValue] == 15 && [closedStatus integerValue] == 1){
+//            self.playerOne15ClosedStatus = @1;
+//            if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
+//                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
+//                    NSLog(@"Player One Wins");
+//                }
+//            }
+//
+//        } else if ([n integerValue] == 25 && [closedStatus integerValue] == 1){
+//            self.playerOne25ClosedStatus = @1;
+//            if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
+//                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
+//                    NSLog(@"Player One Wins");
+//                }
+//            }
+//
+//        }
+//        
+//    }
+//}
+//    
+//- (void)playerTwoClosed:(NSNotification *)notification {
+//    NSDictionary *theData = notification.userInfo;
+//    if (theData != Nil) {
+//        NSNumber *n = [theData objectForKey:@"score"];
+//        NSNumber *closedStatus = [theData objectForKey:@"closedStatus"];
+//        if ([n integerValue] == 20 && [closedStatus integerValue] == 1){
+//            self.playerTwo20ClosedStatus = @1;
+//            if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
+//                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
+//                        NSLog(@"Player Two Wins");
+//                    }
+//                }
+//        } else if ([n integerValue] == 19 && [closedStatus integerValue] == 1){
+//                self.playerTwo19ClosedStatus = @1;
+//                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
+//                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
+//                        NSLog(@"Player Two Wins");
+//                    }
+//                }
+//                
+//        } else if ([n integerValue] == 18 && [closedStatus integerValue] == 1){
+//                self.playerTwo18ClosedStatus = @1;
+//                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
+//                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
+//                        NSLog(@"Player Two Wins");
+//                    }
+//                }
+//                
+//        } else if ([n integerValue] == 17 && [closedStatus integerValue] == 1){
+//                self.playerTwo17ClosedStatus = @1;
+//                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
+//                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
+//                        NSLog(@"Player Two Wins");
+//                    }
+//                }
+//                
+//        } else if ([n integerValue] == 16 && [closedStatus integerValue] == 1){
+//                self.playerTwo16ClosedStatus = @1;
+//                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
+//                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
+//                        NSLog(@"Player Two Wins");
+//                    }
+//                }
+//                
+//        } else if ([n integerValue] == 15 && [closedStatus integerValue] == 1){
+//                self.playerTwo15ClosedStatus = @1;
+//                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
+//                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
+//                        NSLog(@"Player Two Wins");
+//                    }
+//                }
+//                
+//        } else if ([n integerValue] == 25 && [closedStatus integerValue] == 1){
+//                self.playerTwo25ClosedStatus = @1;
+//                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
+//                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
+//                        NSLog(@"Player Two Wins");
+//                    }
+//                }
+//                
+//            }
+//            
+//        }
+//    }
+
+//when player status changed
+//loop through dartNumberViewControllers and tally the totals
+
+- (void)updateScoreTotals {
+	NSInteger playerOneTotal = 0;
+	NSInteger playerTwoTotal = 0;
+	BOOL playerOneAllClosed = YES;
+	BOOL playerTwoAllClosed = YES;
+	for (DartNumberViewController *dartNumberViewController in self.dartViewControllersArray) {
+		playerOneTotal += dartNumberViewController.playerOneDartScore;
+		playerTwoTotal += dartNumberViewController.playerTwoDartScore;
+		if (playerOneAllClosed && dartNumberViewController.playerOneClosedStatus != closedStatusComplete) {
+			playerOneAllClosed = NO;
+		}
+		if (playerTwoAllClosed && dartNumberViewController.playerTwoClosedStatus != closedStatusComplete) {
+			playerTwoAllClosed = NO;
+		}
+	}
+	
+	self.playerOneScoreLabel.text = [NSString stringWithFormat:@"%d", playerOneTotal];
+	self.playerTwoScoreLabel.text = [NSString stringWithFormat:@"%d", playerTwoTotal];
+	
+	if (playerOneAllClosed && playerOneTotal > playerTwoTotal) {
+		NSLog(@"Player One Wins!");
+	}
+	if (playerTwoAllClosed && playerTwoTotal > playerOneTotal) {
+		NSLog(@"Player Two Wins!");
+	}
+	
+	
 }
-
-- (void)updatePlayerTwoScore:(NSNotification *)notification {
-    NSDictionary *theData = notification.userInfo;
-    if (theData != nil) {
-        NSNumber *n = [theData objectForKey:@"score"];
-        NSInteger newPlayerOneScore = [self.playerTwoScore integerValue] + [n integerValue];
-        self.playerTwoScore = @(newPlayerOneScore);
-        self.playerTwoScoreLabel.text = [NSString stringWithFormat:@"%@", self.playerTwoScore];
-    }
-}
-
-- (void)decreasePlayerOneScore:(NSNotification *)notification {
-    NSDictionary *theData = notification.userInfo;
-    if (theData != nil) {
-        NSNumber *n = [theData objectForKey:@"score"];
-        NSInteger newPlayerOneScore = [self.playerOneScore integerValue] - [n integerValue];
-        self.playerOneScore = @(newPlayerOneScore);
-        self.playerOneScoreLabel.text = [NSString stringWithFormat:@"%@", self.playerOneScore];
-    }
-}
-
-
-- (void)decreasePlayerTwoScore:(NSNotification *)notification {
-    NSDictionary *theData = notification.userInfo;
-    if (theData != nil) {
-        NSNumber *n = [theData objectForKey:@"score"];
-        NSInteger newPlayerOneScore = [self.playerTwoScore integerValue] - [n integerValue];
-        self.playerTwoScore = @(newPlayerOneScore);
-        self.playerTwoScoreLabel.text = [NSString stringWithFormat:@"%@", self.playerTwoScore];
-    }
-}
-
-- (void)playerOneClosed:(NSNotification *)notification {
-    NSDictionary *theData = notification.userInfo;
-    if (theData != Nil) {
-        NSNumber *n = [theData objectForKey:@"score"];
-        NSNumber *closedStatus = [theData objectForKey:@"closedStatus"];
-        if ([n integerValue] == 20 && [closedStatus integerValue] == 1){
-            self.playerOne20ClosedStatus = @1;
-            if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
-                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
-                    NSLog(@"Player One Wins");
-                }
-            }
-        } else if ([n integerValue] == 19 && [closedStatus integerValue] == 1){
-            self.playerOne19ClosedStatus = @1;
-            if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
-                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
-                    NSLog(@"Player One Wins");
-                }
-            }
-
-        } else if ([n integerValue] == 18 && [closedStatus integerValue] == 1){
-            self.playerOne18ClosedStatus = @1;
-            if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
-                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
-                    NSLog(@"Player One Wins");
-                }
-            }
-
-        } else if ([n integerValue] == 17 && [closedStatus integerValue] == 1){
-            self.playerOne17ClosedStatus = @1;
-            if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
-                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
-                    NSLog(@"Player One Wins");
-                }
-            }
-
-        } else if ([n integerValue] == 16 && [closedStatus integerValue] == 1){
-            self.playerOne16ClosedStatus = @1;
-            if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
-                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
-                    NSLog(@"Player One Wins");
-                }
-            }
-
-        } else if ([n integerValue] == 15 && [closedStatus integerValue] == 1){
-            self.playerOne15ClosedStatus = @1;
-            if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
-                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
-                    NSLog(@"Player One Wins");
-                }
-            }
-
-        } else if ([n integerValue] == 25 && [closedStatus integerValue] == 1){
-            self.playerOne25ClosedStatus = @1;
-            if ([self.playerOne20ClosedStatus isEqualToNumber:@1] && [self.playerOne19ClosedStatus isEqualToNumber:@1] && [self.playerOne18ClosedStatus isEqualToNumber:@1] && [self.playerOne17ClosedStatus isEqualToNumber:@1] && [self.playerOne16ClosedStatus isEqualToNumber:@1] && [self.playerOne15ClosedStatus isEqualToNumber:@1] && [self.playerOne25ClosedStatus isEqualToNumber:@1]) {
-                if([self.playerOneScore integerValue] > [self.playerTwoScore integerValue]){
-                    NSLog(@"Player One Wins");
-                }
-            }
-
-        }
-        
-    }
-}
-    
-- (void)playerTwoClosed:(NSNotification *)notification {
-    NSDictionary *theData = notification.userInfo;
-    if (theData != Nil) {
-        NSNumber *n = [theData objectForKey:@"score"];
-        NSNumber *closedStatus = [theData objectForKey:@"closedStatus"];
-        if ([n integerValue] == 20 && [closedStatus integerValue] == 1){
-            self.playerTwo20ClosedStatus = @1;
-            if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
-                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
-                        NSLog(@"Player Two Wins");
-                    }
-                }
-        } else if ([n integerValue] == 19 && [closedStatus integerValue] == 1){
-                self.playerTwo19ClosedStatus = @1;
-                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
-                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
-                        NSLog(@"Player Two Wins");
-                    }
-                }
-                
-        } else if ([n integerValue] == 18 && [closedStatus integerValue] == 1){
-                self.playerTwo18ClosedStatus = @1;
-                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
-                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
-                        NSLog(@"Player Two Wins");
-                    }
-                }
-                
-        } else if ([n integerValue] == 17 && [closedStatus integerValue] == 1){
-                self.playerTwo17ClosedStatus = @1;
-                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
-                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
-                        NSLog(@"Player Two Wins");
-                    }
-                }
-                
-        } else if ([n integerValue] == 16 && [closedStatus integerValue] == 1){
-                self.playerTwo16ClosedStatus = @1;
-                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
-                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
-                        NSLog(@"Player Two Wins");
-                    }
-                }
-                
-        } else if ([n integerValue] == 15 && [closedStatus integerValue] == 1){
-                self.playerTwo15ClosedStatus = @1;
-                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
-                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
-                        NSLog(@"Player Two Wins");
-                    }
-                }
-                
-        } else if ([n integerValue] == 25 && [closedStatus integerValue] == 1){
-                self.playerTwo25ClosedStatus = @1;
-                if ([self.playerTwo20ClosedStatus isEqualToNumber:@1] && [self.playerTwo19ClosedStatus isEqualToNumber:@1] && [self.playerTwo18ClosedStatus isEqualToNumber:@1] && [self.playerTwo17ClosedStatus isEqualToNumber:@1] && [self.playerTwo16ClosedStatus isEqualToNumber:@1] && [self.playerTwo15ClosedStatus isEqualToNumber:@1] && [self.playerTwo25ClosedStatus isEqualToNumber:@1]) {
-                    if([self.playerTwoScore integerValue] > [self.playerOneScore integerValue]){
-                        NSLog(@"Player Two Wins");
-                    }
-                }
-                
-            }
-            
-        }
-    }
-    
-
     
 @end
 

@@ -7,19 +7,14 @@
 //
 #import "DartNumberViewController.h"
 #import "ViewController.h"
-#import "DartNumberModel.h"
 
 @interface DartNumberViewController ()
 
-@property (nonatomic) NSInteger playerOneNumberScore;
-@property (nonatomic) NSInteger playerTwoNumberScore;
 @property (nonatomic) UIButton *playerOneAddButton;
 @property (nonatomic) UIButton *playerOneMinusButton;
 @property (nonatomic) UILabel *dartNumberLabel;
 @property (nonatomic) UIButton *playerTwoMinusButton;
 @property (nonatomic) UIButton *playerTwoAddButton;
-@property (nonatomic) NSNumber *playerOneClosedStatus;
-@property (nonatomic) NSNumber *playerTwoClosedStatus;
 @property (nonatomic) DartNumberModel *dartNumberModel;
 
 @end
@@ -37,8 +32,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    self.playerOneNumberScore = 0;
     
     
     self.playerOneMinusButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -156,7 +149,10 @@
     } else {
         [self.playerOneMinusButton setTitle:@"-" forState:UIControlStateNormal];
     }
+	
+	[self notifyListenersOfStatusChange];
     
+	//post notification that player status changed
     
     
 //    if (self.dartNumberModel.playerOneClosedStatus == closedStatusComplete) {
@@ -199,30 +195,8 @@
     } else {
         [self.playerTwoMinusButton setTitle:@"-" forState:UIControlStateNormal];
     }
+	[self notifyListenersOfStatusChange];
 
-//    if ([self.playerTwoAddButton.titleLabel.text isEqualToString:@"+"]) {
-//        [self.playerTwoAddButton setTitle:[NSString stringWithFormat:@"/"] forState:UIControlStateNormal];
-//    } else if ([self.playerTwoAddButton.titleLabel.text isEqualToString:@"/"]) {
-//        [self.playerTwoAddButton setTitle:[NSString stringWithFormat:@"X"] forState:UIControlStateNormal];
-//    } else if ([self.playerTwoAddButton.titleLabel.text isEqualToString:@"X"]) {
-//        [self.playerTwoAddButton setTitle:[NSString stringWithFormat:@"☺︎"] forState:UIControlStateNormal];
-//        self.playerTwoClosedStatus = @1;
-//        
-//        NSDictionary *playerTwoScoreDic = @{@"score": [NSNumber numberWithInt:self.dartNumberModel.dartNumber], @"closedStatus": self.playerTwoClosedStatus};
-//        [[NSNotificationCenter defaultCenter] postNotificationName:@"playerTwoClosedNumber" object:self userInfo:playerTwoScoreDic];
-//        
-//    } else if ([self.playerTwoAddButton.titleLabel.text isEqualToString:@"☺︎"]) {
-//        if ([self.playerOneAddButton.titleLabel.text isEqualToString:@"☺︎"]) {
-//            NSLog(@"Ha Ha");
-//        } else {
-//            self.playerTwoNumberScore += self.dartNumberModel.dartNumber;
-//            [self.playerTwoMinusButton setTitle:[NSString stringWithFormat:@"%d", self.playerTwoNumberScore] forState:UIControlStateNormal];
-//            
-//            NSDictionary *playerTwoScoreDic = @{@"score": [NSNumber numberWithInt:self.dartNumberModel.dartNumber]};
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerTwoScoreUP" object:self userInfo:playerTwoScoreDic];
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerTwoClosedNumber" object:self userInfo:playerTwoScoreDic];
-//        }
-//    }
 }
 
 - (void)playerOneMinusButtonTapped
@@ -234,34 +208,7 @@
     } else {
         [self.playerOneMinusButton setTitle:[NSString stringWithFormat:@"%d",self.dartNumberModel.playerOneDartScore] forState:UIControlStateNormal];
     }
-    
-    
-    
-//    if ([self.playerOneAddButton.titleLabel.text isEqualToString:@"☺︎"]) {
-//        if (self.playerOneNumberScore == self.dartNumberModel.dartNumber) {
-//            [self.playerOneMinusButton setTitle:[NSString stringWithFormat:@"-"] forState:UIControlStateNormal];
-//            self.playerOneNumberScore = 0;
-//            
-//            NSDictionary *playerOneMinusScoreDic = @{@"score": [NSNumber numberWithInt:self.dartNumberModel.dartNumber]};
-//            
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerOneScoreDown" object:self userInfo:playerOneMinusScoreDic];
-//            
-//        } else if ([self.playerOneMinusButton.titleLabel.text isEqualToString:@"-"]) {
-//            [self.playerOneAddButton setTitle:[NSString stringWithFormat:@"X"] forState:UIControlStateNormal];
-//        } else {
-//            self.playerOneNumberScore -= self.dartNumberModel.dartNumber;
-//            [self.playerOneMinusButton setTitle:[NSString stringWithFormat:@"%d",self.playerOneNumberScore] forState:UIControlStateNormal];
-//            
-//            NSDictionary *playerOneMinusScoreDic = @{@"score": [NSNumber numberWithInt:self.dartNumberModel.dartNumber]};
-//            
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerOneScoreDown" object:self userInfo:playerOneMinusScoreDic];
-//
-//        }
-//    } else if ([self.playerOneAddButton.titleLabel.text isEqualToString:@"X"]) {
-//        [self.playerOneAddButton setTitle:[NSString stringWithFormat:@"/"] forState:UIControlStateNormal];
-//    } else if ([self.playerOneAddButton.titleLabel.text isEqualToString:@"/"]) {
-//        [self.playerOneAddButton setTitle:[NSString stringWithFormat:@"+"] forState:UIControlStateNormal];
-//    }
+	[self notifyListenersOfStatusChange];
 }
 
 - (void)playerTwoMinusButtonTapped
@@ -273,39 +220,32 @@
     } else {
         [self.playerTwoMinusButton setTitle:[NSString stringWithFormat:@"%d",self.dartNumberModel.playerTwoDartScore] forState:UIControlStateNormal];
     }
-    
-//    if ([self.playerTwoAddButton.titleLabel.text isEqualToString:@"☺︎"]) {
-//        if (self.playerTwoNumberScore == self.dartNumberModel.dartNumber) {
-//            [self.playerTwoMinusButton setTitle:[NSString stringWithFormat:@"-"] forState:UIControlStateNormal];
-//            self.playerTwoNumberScore = 0;
-//            
-//            NSDictionary *playerTwoMinusScoreDic = @{@"score": [NSNumber numberWithInt:self.dartNumberModel.dartNumber]};
-//            
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerTwoScoreDown" object:self userInfo:playerTwoMinusScoreDic];
-//            
-//        } else if ([self.playerTwoMinusButton.titleLabel.text isEqualToString:@"-"]) {
-//            [self.playerTwoAddButton setTitle:[NSString stringWithFormat:@"X"] forState:UIControlStateNormal];
-//        } else {
-//            self.playerTwoNumberScore -= self.dartNumberModel.dartNumber;
-//            [self.playerTwoMinusButton setTitle:[NSString stringWithFormat:@"%d",self.playerTwoNumberScore] forState:UIControlStateNormal];
-//            
-//            NSDictionary *playerTwoMinusScoreDic = @{@"score": [NSNumber numberWithInt:self.dartNumberModel.dartNumber]};
-//            
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"playerTwoScoreDown" object:self userInfo:playerTwoMinusScoreDic];
-//            
-//        }
-//    } else if ([self.playerTwoAddButton.titleLabel.text isEqualToString:@"X"]) {
-//        [self.playerTwoAddButton setTitle:[NSString stringWithFormat:@"/"] forState:UIControlStateNormal];
-//    } else if ([self.playerTwoAddButton.titleLabel.text isEqualToString:@"/"]) {
-//        [self.playerTwoAddButton setTitle:[NSString stringWithFormat:@"+"] forState:UIControlStateNormal];
-//    }
+	[self notifyListenersOfStatusChange];
+}
+
+- (void)notifyListenersOfStatusChange {
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"PlayerStatusChanged" object:nil];
 }
 
 - (void)setDartNumberText:(NSString *)dartNumberText {
     _dartNumberText = dartNumberText;
     self.dartNumberLabel.text = dartNumberText;
-    
+}
 
+- (NSInteger)playerOneDartScore {
+	return self.dartNumberModel.playerOneDartScore;
+}
+
+- (NSInteger)playerTwoDartScore {
+	return self.dartNumberModel.playerTwoDartScore;
+}
+
+- (ClosedStatus)playerOneClosedStatus {
+	return self.dartNumberModel.playerOneClosedStatus;
+}
+
+- (ClosedStatus)playerTwoClosedStatus {
+	return self.dartNumberModel.playerTwoClosedStatus;
 }
 
 @end
