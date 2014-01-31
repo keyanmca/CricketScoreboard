@@ -10,7 +10,8 @@
 
 @interface DartNumberViewController : UIViewController
 
-@property (nonatomic) NSInteger dartNumber;
 @property (nonatomic) NSString *dartNumberText;
+
+- (instancetype)initWithDartNumber:(NSInteger)dartNumber;
 
 @end

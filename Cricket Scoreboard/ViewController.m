@@ -117,10 +117,9 @@
     NSInteger index = 0;
     CGFloat dartViewControllerXCoordinate = 90.0;
     for (NSString *dartNumberText in self.dartNumberTextArray) {
-        DartNumberViewController *dartViewController = [[DartNumberViewController alloc] init];
-        dartViewController.dartNumberText = dartNumberText;
         NSNumber *dartNumber = self.dartNumberArray[index];
-        dartViewController.dartNumber = [dartNumber integerValue];
+        DartNumberViewController *dartViewController = [[DartNumberViewController alloc] initWithDartNumber:[dartNumber integerValue]];
+        dartViewController.dartNumberText = dartNumberText;
         dartViewController.view.frame = CGRectMake(0.0, dartViewControllerXCoordinate, 768.0, 105.0);
         [self.view addSubview:dartViewController.view];
         dartViewControllerXCoordinate += 105.0;
@@ -128,6 +127,9 @@
         [dartViewControllersArray addObject:dartViewController];
     }
     self.dartViewControllersArray = dartViewControllersArray;
+    
+    
+    // The code below was replaced by using the array above
     
     
     //    self.dartTwentyViewController = [[DartNumberViewController alloc] init];

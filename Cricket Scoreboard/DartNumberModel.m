@@ -14,7 +14,7 @@
 @property (nonatomic, readwrite) NSInteger playerTwoDartScore;
 @property (nonatomic) ClosedStatus playerOneClosedStatus;
 @property (nonatomic) ClosedStatus playerTwoClosedStatus;
-@property (nonatomic) NSInteger dartNumber;
+@property (nonatomic, readwrite) NSInteger dartNumber;
 
 @end
 
@@ -36,17 +36,17 @@
 }
 
 - (void)addPlayerOneDartScore {
-    self.playerOneClosedStatus = [self nextClosedStatusForClosedStatus:self.playerOneClosedStatus];
-    if ([self isPlayerOneClosed] == YES) {
+    if ([self isPlayerOneClosed] == YES && self.playerTwoClosedStatus != closedStatusComplete) {
         self.playerOneDartScore += self.dartNumber;
     }
+    self.playerOneClosedStatus = [self nextClosedStatusForClosedStatus:self.playerOneClosedStatus];
 }
 
 - (void)addPlayerTwoDartScore {
-    self.playerTwoClosedStatus = [self nextClosedStatusForClosedStatus:self.playerTwoClosedStatus];
-    if([self isPlayerTwoClosed] == YES) {
-    self.playerTwoDartScore += self.dartNumber;
+    if([self isPlayerTwoClosed] == YES && self.playerOneClosedStatus != closedStatusComplete) {
+        self.playerTwoDartScore += self.dartNumber;
     }
+    self.playerTwoClosedStatus = [self nextClosedStatusForClosedStatus:self.playerTwoClosedStatus];
 }
 
 - (void)subtractPlayerOneDartScore {
