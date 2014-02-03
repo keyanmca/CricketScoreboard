@@ -18,12 +18,12 @@ typedef enum {
 
 @interface DartNumberModel : NSObject
 
-@property (nonatomic, readonly) NSInteger playerOneDartScore;
-@property (nonatomic, readonly) NSInteger playerTwoDartScore;
-@property (nonatomic, readonly) NSInteger dartNumber;
+@property (nonatomic) NSInteger playerOneDartScore;
+@property (nonatomic) NSInteger playerTwoDartScore;
+@property (nonatomic) NSInteger dartNumber;
 
-@property (nonatomic, readonly) ClosedStatus playerOneClosedStatus;
-@property (nonatomic, readonly) ClosedStatus playerTwoClosedStatus;
+@property (nonatomic) ClosedStatus playerOneClosedStatus;
+@property (nonatomic) ClosedStatus playerTwoClosedStatus;
 
 - (instancetype)initWithDartNumber:(NSInteger)dartNumber;
 - (BOOL)isPlayerOneClosed;

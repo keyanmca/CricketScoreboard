@@ -10,11 +10,11 @@
 
 @interface DartNumberModel()
 
-@property (nonatomic, readwrite) NSInteger playerOneDartScore;
-@property (nonatomic, readwrite) NSInteger playerTwoDartScore;
-@property (nonatomic) ClosedStatus playerOneClosedStatus;
-@property (nonatomic) ClosedStatus playerTwoClosedStatus;
-@property (nonatomic, readwrite) NSInteger dartNumber;
+//@property (nonatomic) NSInteger playerOneDartScore;
+//@property (nonatomic) NSInteger playerTwoDartScore;
+//@property (nonatomic) ClosedStatus playerOneClosedStatus;
+//@property (nonatomic) ClosedStatus playerTwoClosedStatus;
+//@property (nonatomic) NSInteger dartNumber;
 
 @end
 
@@ -104,6 +104,8 @@
     }
     return previousClosedStatus;
 }
+
+
 
 @end
 

@@ -28,11 +28,18 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(resetGame)
+												 name:@"Reset"
+											   object:nil];
+	
     
     self.playerOneMinusButton = [UIButton buttonWithType:UIButtonTypeSystem];
     self.playerOneMinusButton.frame = CGRectMake(0.0, 0.0, 165.0, 104.0);
@@ -103,11 +110,6 @@
     
 //    self.view.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
 }
-
-
-
-
-
 
 
 
@@ -246,6 +248,18 @@
 
 - (ClosedStatus)playerTwoClosedStatus {
 	return self.dartNumberModel.playerTwoClosedStatus;
+	
+}
+
+- (void)resetGame {
+	self.dartNumberModel.playerOneDartScore = 0;
+	self.dartNumberModel.playerTwoDartScore = 0;
+	self.dartNumberModel.playerOneClosedStatus = closedStatusNone;
+	self.dartNumberModel.playerTwoClosedStatus = closedStatusNone;
+	[self.playerOneMinusButton setTitle:[NSString stringWithFormat:@"-"] forState:UIControlStateNormal];
+	[self.playerOneAddButton setTitle:[NSString stringWithFormat:@"+"] forState:UIControlStateNormal];
+	[self.playerTwoAddButton setTitle:[NSString stringWithFormat:@"+"] forState:UIControlStateNormal];
+	[self.playerTwoMinusButton setTitle:[NSString stringWithFormat:@"-"] forState:UIControlStateNormal];
 }
 
 @end
