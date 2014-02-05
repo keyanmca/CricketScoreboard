@@ -55,11 +55,16 @@
     
 //    self.playerOneMinusButton.backgroundColor = [UIColor redColor];
 
-    self.playerOneAddButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.playerOneAddButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.playerOneAddButton.frame = CGRectMake(CGRectGetMaxX(self.playerOneMinusButton.frame), 0.0, 164.0, 104.0);
-    [self.playerOneAddButton setTitle:[NSString stringWithFormat:@"+"] forState:UIControlStateNormal];
-    self.playerOneAddButton.titleLabel.font = [UIFont systemFontOfSize:50];
-    [self.playerOneAddButton setTitleColor:[UIColor colorWithRed:31.0/255.0 green:31.0/255.0 blue:33.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+	[self.playerOneAddButton setImage:[UIImage imageNamed:@"Dart_Plus.png"] forState:UIControlStateNormal];
+	[self.playerOneAddButton setImage:[UIImage imageNamed:@"Dart_Plus.png"] forState:UIControlStateHighlighted];
+	[self.playerOneAddButton setContentMode:UIViewContentModeCenter];
+	[self.playerOneAddButton setContentEdgeInsets:UIEdgeInsetsMake(15.0, 45.0, 15.0, 45.0)];
+	
+//    [self.playerOneAddButton setTitle:[NSString stringWithFormat:@"+"] forState:UIControlStateNormal];
+//    self.playerOneAddButton.titleLabel.font = [UIFont systemFontOfSize:50];
+//    [self.playerOneAddButton setTitleColor:[UIColor colorWithRed:31.0/255.0 green:31.0/255.0 blue:33.0/255.0 alpha:1.0] forState:UIControlStateNormal];
     [self.playerOneAddButton addTarget:self action:@selector(playerOneAddButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.playerOneAddButton];
     
@@ -81,17 +86,35 @@
     rightSideBorder.backgroundColor = [UIColor colorWithRed:31.0/255.0 green:31.0/255.0 blue:33.0/255.0 alpha:1.0];
     [self.view addSubview:rightSideBorder];
 
-    self.playerTwoAddButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    self.playerTwoAddButton.frame = CGRectMake(CGRectGetMaxX(rightSideBorder.frame), 0.0, 164.0, 104.0);
-    [self.playerTwoAddButton setTitle:[NSString stringWithFormat:@"+"] forState:UIControlStateNormal];
-    self.playerTwoAddButton.titleLabel.font = [UIFont systemFontOfSize:50];
-    [self.playerTwoAddButton setTitleColor:[UIColor colorWithRed:31.0/255.0 green:31.0/255.0 blue:33.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+//    self.playerTwoAddButton = [UIButton buttonWithType:UIButtonTypeSystem];
+//    self.playerTwoAddButton.frame = CGRectMake(CGRectGetMaxX(rightSideBorder.frame), 0.0, 164.0, 104.0);
+//    [self.playerTwoAddButton setTitle:[NSString stringWithFormat:@"+"] forState:UIControlStateNormal];
+//    self.playerTwoAddButton.titleLabel.font = [UIFont systemFontOfSize:50];
+//    [self.playerTwoAddButton setTitleColor:[UIColor colorWithRed:31.0/255.0 green:31.0/255.0 blue:33.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+//    [self.playerTwoAddButton addTarget:self action:@selector(playerTwoAddButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:self.playerTwoAddButton];
+//    
+//    UILabel *playerTwoBorder = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.playerTwoAddButton.frame), 0.0, 1.0, 104.0)];
+//    playerTwoBorder.backgroundColor = [UIColor colorWithRed:31.0/255.0 green:31.0/255.0 blue:33.0/255.0 alpha:1.0];
+//    [self.view addSubview:playerTwoBorder];
+	
+	self.playerTwoAddButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    self.playerTwoAddButton.frame = CGRectMake(CGRectGetMaxX(rightSideBorder.frame), 0.0, 164.0, 104.0);
+	[self.playerTwoAddButton setImage:[UIImage imageNamed:@"Dart_Plus.png"] forState:UIControlStateNormal];
+	[self.playerTwoAddButton setImage:[UIImage imageNamed:@"Dart_Plus.png"] forState:UIControlStateHighlighted];
+	[self.playerTwoAddButton setFrame:CGRectMake(CGRectGetMaxX(rightSideBorder.frame), 0.0, 164.0, 104.0)];
+	[self.playerTwoAddButton setContentMode:UIViewContentModeCenter];
+	[self.playerTwoAddButton setContentEdgeInsets:UIEdgeInsetsMake(15.0, 45.0, 15.0, 45.0)];
+//    [self.playerTwoAddButton setTitle:[NSString stringWithFormat:@"+"] forState:UIControlStateNormal];
+//    self.playerTwoAddButton.titleLabel.font = [UIFont systemFontOfSize:50];
+//    [self.playerTwoAddButton setTitleColor:[UIColor colorWithRed:31.0/255.0 green:31.0/255.0 blue:33.0/255.0 alpha:1.0] forState:UIControlStateNormal];
     [self.playerTwoAddButton addTarget:self action:@selector(playerTwoAddButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.playerTwoAddButton];
     
     UILabel *playerTwoBorder = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.playerTwoAddButton.frame), 0.0, 1.0, 104.0)];
     playerTwoBorder.backgroundColor = [UIColor colorWithRed:31.0/255.0 green:31.0/255.0 blue:33.0/255.0 alpha:1.0];
     [self.view addSubview:playerTwoBorder];
+
     
 //    self.playerTwoAddButton.backgroundColor = [UIColor redColor];
     
@@ -114,23 +137,38 @@
 
 
 - (NSString *)buttonCharacterForClosedStatus:(ClosedStatus)closedStatus {
-    NSString *buttonCharacter;
-    switch (closedStatus) {
-        case closedStatusSlash:
-            buttonCharacter = @"/";
-            break;
-        case closedStatusEx:
-            buttonCharacter = @"X";
-            break;
-        case closedStatusComplete:
-            buttonCharacter = @"☺︎";
-            break;
-        case closedStatusNone:
-        default:
-            buttonCharacter = @"+";
-            break;
+    NSString *buttonCharacter; {
+	switch (closedStatus) {
+		case closedStatusSlash:
+			buttonCharacter = @"Dart_Slash.png";
+			break;
+		case closedStatusEx:
+			buttonCharacter = @"Dart_Ex.png";
+			break;
+		case closedStatusComplete:
+			buttonCharacter = @"Dart_Closed.png";
+			break;
+		case closedStatusNone:
+		default:
+			buttonCharacter = @"Dart_Plus.png";
+			break;
+//    switch (closedStatus) {
+//        case closedStatusSlash:
+//            buttonCharacter = @"/";
+//            break;
+//        case closedStatusEx:
+//            buttonCharacter = @"X";
+//            break;
+//        case closedStatusComplete:
+//            buttonCharacter = @"☺︎";
+//            break;
+//        case closedStatusNone:
+//        default:
+//            buttonCharacter = @"+";
+//            break;
     }
     return buttonCharacter;
+	}
 }
 
 
@@ -145,7 +183,11 @@
 - (void)playerOneAddButtonTapped
 {
     [self.dartNumberModel addPlayerOneDartScore];
-    [self.playerOneAddButton setTitle:[self buttonCharacterForClosedStatus:self.dartNumberModel.playerOneClosedStatus] forState:UIControlStateNormal];
+	
+	[self.playerOneAddButton setImage:[UIImage imageNamed:[self buttonCharacterForClosedStatus:self.dartNumberModel.playerOneClosedStatus]] forState:UIControlStateNormal];
+	[self.playerOneAddButton setImage:[UIImage imageNamed:[self buttonCharacterForClosedStatus:self.dartNumberModel.playerOneClosedStatus]] forState:UIControlStateHighlighted];
+
+//	[self.playerOneAddButton setTitle:[self buttonCharacterForClosedStatus:self.dartNumberModel.playerOneClosedStatus] forState:UIControlStateNormal];
     if (self.dartNumberModel.playerOneDartScore > 0) {
         [self.playerOneMinusButton setTitle:[NSString stringWithFormat:@"%d", self.dartNumberModel.playerOneDartScore] forState:UIControlStateNormal];
     } else {
@@ -190,7 +232,11 @@
 - (void)playerTwoAddButtonTapped
 {
     [self.dartNumberModel addPlayerTwoDartScore];
-    [self.playerTwoAddButton setTitle:[self buttonCharacterForClosedStatus:self.dartNumberModel.playerTwoClosedStatus] forState:UIControlStateNormal];
+	
+	[self.playerTwoAddButton setImage:[UIImage imageNamed:[self buttonCharacterForClosedStatus:self.dartNumberModel.playerTwoClosedStatus]] forState:UIControlStateNormal];
+	[self.playerTwoAddButton setImage:[UIImage imageNamed:[self buttonCharacterForClosedStatus:self.dartNumberModel.playerTwoClosedStatus]] forState:UIControlStateHighlighted];
+	
+//    [self.playerTwoAddButton setTitle:[self buttonCharacterForClosedStatus:self.dartNumberModel.playerTwoClosedStatus] forState:UIControlStateNormal];
     
     if (self.dartNumberModel.playerTwoDartScore > 0) {
         [self.playerTwoMinusButton setTitle:[NSString stringWithFormat:@"%d", self.dartNumberModel.playerTwoDartScore] forState:UIControlStateNormal];
@@ -204,7 +250,8 @@
 - (void)playerOneMinusButtonTapped
 {
     [self.dartNumberModel subtractPlayerOneDartScore];
-    [self.playerOneAddButton setTitle:[self buttonCharacterForClosedStatus:self.dartNumberModel.playerOneClosedStatus] forState:UIControlStateNormal];
+    [self.playerOneAddButton setImage:[UIImage imageNamed:[self buttonCharacterForClosedStatus:self.dartNumberModel.playerOneClosedStatus]] forState:UIControlStateNormal];
+	[self.playerOneAddButton setImage:[UIImage imageNamed:[self buttonCharacterForClosedStatus:self.dartNumberModel.playerOneClosedStatus]] forState:UIControlStateHighlighted];
     if (self.dartNumberModel.playerOneDartScore == 0) {
         [self.playerOneMinusButton setTitle:@"-" forState:UIControlStateNormal];
     } else {
@@ -216,7 +263,8 @@
 - (void)playerTwoMinusButtonTapped
 {
     [self.dartNumberModel subtractPlayerTwoDartScore];
-    [self.playerTwoAddButton setTitle:[self buttonCharacterForClosedStatus:self.dartNumberModel.playerTwoClosedStatus] forState:UIControlStateNormal];
+	[self.playerTwoAddButton setImage:[UIImage imageNamed:[self buttonCharacterForClosedStatus:self.dartNumberModel.playerTwoClosedStatus]] forState:UIControlStateNormal];
+	[self.playerTwoAddButton setImage:[UIImage imageNamed:[self buttonCharacterForClosedStatus:self.dartNumberModel.playerTwoClosedStatus]] forState:UIControlStateHighlighted];
     if (self.dartNumberModel.playerTwoDartScore == 0) {
         [self.playerTwoMinusButton setTitle:@"-" forState:UIControlStateNormal];
     } else {
@@ -252,13 +300,16 @@
 }
 
 - (void)resetGame {
-	self.dartNumberModel.playerOneDartScore = 0;
-	self.dartNumberModel.playerTwoDartScore = 0;
-	self.dartNumberModel.playerOneClosedStatus = closedStatusNone;
-	self.dartNumberModel.playerTwoClosedStatus = closedStatusNone;
-	[self.playerOneMinusButton setTitle:[NSString stringWithFormat:@"-"] forState:UIControlStateNormal];
-	[self.playerOneAddButton setTitle:[NSString stringWithFormat:@"+"] forState:UIControlStateNormal];
-	[self.playerTwoAddButton setTitle:[NSString stringWithFormat:@"+"] forState:UIControlStateNormal];
+	[self.dartNumberModel reset];
+//	self.dartNumberModel.playerOneDartScore = 0;
+//	self.dartNumberModel.playerTwoDartScore = 0;
+//	self.dartNumberModel.playerOneClosedStatus = closedStatusNone;
+//	self.dartNumberModel.playerTwoClosedStatus = closedStatusNone;
+	[self.playerOneMinusButton setTitle:@"-" forState:UIControlStateNormal];
+	[self.playerOneAddButton setImage:[UIImage imageNamed:@"Dart_Plus.png"] forState:UIControlStateNormal];
+	[self.playerOneAddButton setImage:[UIImage imageNamed:@"Dart_Plus.png"] forState:UIControlStateHighlighted];
+	[self.playerTwoAddButton setImage:[UIImage imageNamed:@"Dart_Plus.png"] forState:UIControlStateNormal];
+	[self.playerTwoAddButton setImage:[UIImage imageNamed:@"Dart_Plus.png"] forState:UIControlStateHighlighted];
 	[self.playerTwoMinusButton setTitle:[NSString stringWithFormat:@"-"] forState:UIControlStateNormal];
 }
 

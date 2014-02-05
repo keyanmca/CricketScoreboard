@@ -10,11 +10,11 @@
 
 @interface DartNumberModel()
 
-//@property (nonatomic) NSInteger playerOneDartScore;
-//@property (nonatomic) NSInteger playerTwoDartScore;
-//@property (nonatomic) ClosedStatus playerOneClosedStatus;
-//@property (nonatomic) ClosedStatus playerTwoClosedStatus;
-//@property (nonatomic) NSInteger dartNumber;
+@property (nonatomic, readwrite) NSInteger playerOneDartScore;
+@property (nonatomic, readwrite) NSInteger playerTwoDartScore;
+@property (nonatomic, readwrite) ClosedStatus playerOneClosedStatus;
+@property (nonatomic, readwrite) ClosedStatus playerTwoClosedStatus;
+@property (nonatomic, readwrite) NSInteger dartNumber;
 
 @end
 
@@ -40,6 +40,7 @@
         self.playerOneDartScore += self.dartNumber;
     }
     self.playerOneClosedStatus = [self nextClosedStatusForClosedStatus:self.playerOneClosedStatus];
+//	self.playerOneDartScore += self.dartNumber;
 }
 
 - (void)addPlayerTwoDartScore {
@@ -47,6 +48,7 @@
         self.playerTwoDartScore += self.dartNumber;
     }
     self.playerTwoClosedStatus = [self nextClosedStatusForClosedStatus:self.playerTwoClosedStatus];
+//	self.playerTwoDartScore += self.dartNumber;
 }
 
 - (void)subtractPlayerOneDartScore {
@@ -55,6 +57,7 @@
     } else {
         self.playerOneClosedStatus = [self previousClosedStatusForClosedStatus:self.playerOneClosedStatus];
     }
+//	self.playerOneDartScore = 0;
 }
 
 - (void)subtractPlayerTwoDartScore {
@@ -103,6 +106,13 @@
             break;
     }
     return previousClosedStatus;
+}
+
+- (void)reset {
+	self.playerOneDartScore = 0;
+	self.playerTwoDartScore = 0;
+	self.playerOneClosedStatus = closedStatusNone;
+	self.playerTwoClosedStatus = closedStatusNone;
 }
 
 

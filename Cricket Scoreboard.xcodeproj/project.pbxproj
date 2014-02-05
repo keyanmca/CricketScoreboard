@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC1BDF1118A2B06200590FA2 /* DartNumberModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FC1BDF1018A2B06200590FA2 /* DartNumberModelTest.m */; };
+		FC1BDF1218A2B2C700590FA2 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1BDF0E18A2B00900590FA2 /* libOCMock.a */; };
 		FC6B45BF189C21A1005B54C4 /* DartNumberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6B45BE189C21A1005B54C4 /* DartNumberModel.m */; };
 		FC8D542B1898338000EA0C59 /* DartNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8D542A1898338000EA0C59 /* DartNumberViewController.m */; };
+		FCA41B9418A034C700E06903 /* Dart_Closed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA41B8F18A034C700E06903 /* Dart_Closed@2x.png */; };
+		FCA41B9518A034C700E06903 /* Dart_Ex.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA41B9018A034C700E06903 /* Dart_Ex.png */; };
+		FCA41B9618A034C700E06903 /* Dart_Slash.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA41B9118A034C700E06903 /* Dart_Slash.png */; };
+		FCA41B9D18A050BC00E06903 /* Dart_Minus.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA41B9B18A050BC00E06903 /* Dart_Minus.png */; };
+		FCA41B9E18A050BC00E06903 /* Dart_Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA41B9C18A050BC00E06903 /* Dart_Plus.png */; };
+		FCA41BA018A08B8000E06903 /* Dart_Closed.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA41B9F18A08B8000E06903 /* Dart_Closed.png */; };
 		FCDC88FA18931F8D00EEC958 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC88F918931F8D00EEC958 /* Foundation.framework */; };
 		FCDC88FC18931F8D00EEC958 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC88FB18931F8D00EEC958 /* CoreGraphics.framework */; };
 		FCDC88FE18931F8D00EEC958 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC88FD18931F8D00EEC958 /* UIKit.framework */; };
@@ -22,7 +30,6 @@
 		FCDC891A18931F8D00EEC958 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC88F918931F8D00EEC958 /* Foundation.framework */; };
 		FCDC891B18931F8D00EEC958 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCDC88FD18931F8D00EEC958 /* UIKit.framework */; };
 		FCDC892318931F8D00EEC958 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCDC892118931F8D00EEC958 /* InfoPlist.strings */; };
-		FCDC892518931F8D00EEC958 /* Cricket_ScoreboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDC892418931F8D00EEC958 /* Cricket_ScoreboardTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +43,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC1BDF0E18A2B00900590FA2 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ../../ThirdParty/OCMock/iOS/libOCMock.a; sourceTree = "<group>"; };
+		FC1BDF1018A2B06200590FA2 /* DartNumberModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DartNumberModelTest.m; sourceTree = "<group>"; };
 		FC6B45BD189C21A1005B54C4 /* DartNumberModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DartNumberModel.h; sourceTree = "<group>"; };
 		FC6B45BE189C21A1005B54C4 /* DartNumberModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DartNumberModel.m; sourceTree = "<group>"; };
 		FC8D54291898338000EA0C59 /* DartNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DartNumberViewController.h; sourceTree = "<group>"; };
 		FC8D542A1898338000EA0C59 /* DartNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DartNumberViewController.m; sourceTree = "<group>"; };
+		FCA41B8F18A034C700E06903 /* Dart_Closed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Dart_Closed@2x.png"; path = "images/Dart_Closed@2x.png"; sourceTree = "<group>"; };
+		FCA41B9018A034C700E06903 /* Dart_Ex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Dart_Ex.png; path = images/Dart_Ex.png; sourceTree = "<group>"; };
+		FCA41B9118A034C700E06903 /* Dart_Slash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Dart_Slash.png; path = images/Dart_Slash.png; sourceTree = "<group>"; };
+		FCA41B9B18A050BC00E06903 /* Dart_Minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dart_Minus.png; sourceTree = "<group>"; };
+		FCA41B9C18A050BC00E06903 /* Dart_Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dart_Plus.png; sourceTree = "<group>"; };
+		FCA41B9F18A08B8000E06903 /* Dart_Closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dart_Closed.png; sourceTree = "<group>"; };
 		FCDC88F618931F8D00EEC958 /* Cricket Scoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cricket Scoreboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCDC88F918931F8D00EEC958 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FCDC88FB18931F8D00EEC958 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,7 +73,6 @@
 		FCDC891818931F8D00EEC958 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FCDC892018931F8D00EEC958 /* Cricket ScoreboardTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cricket ScoreboardTests-Info.plist"; sourceTree = "<group>"; };
 		FCDC892218931F8D00EEC958 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FCDC892418931F8D00EEC958 /* Cricket_ScoreboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cricket_ScoreboardTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCDC891918931F8D00EEC958 /* XCTest.framework in Frameworks */,
+				FC1BDF1218A2B2C700590FA2 /* libOCMock.a in Frameworks */,
 				FCDC891B18931F8D00EEC958 /* UIKit.framework in Frameworks */,
 				FCDC891A18931F8D00EEC958 /* Foundation.framework in Frameworks */,
 			);
@@ -85,6 +100,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FCA41B8B18A0347D00E06903 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FCA41B8C18A0348800E06903 /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		FCA41B8C18A0348800E06903 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				FCA41B9F18A08B8000E06903 /* Dart_Closed.png */,
+				FCA41B9B18A050BC00E06903 /* Dart_Minus.png */,
+				FCA41B9C18A050BC00E06903 /* Dart_Plus.png */,
+				FCA41B8F18A034C700E06903 /* Dart_Closed@2x.png */,
+				FCA41B9018A034C700E06903 /* Dart_Ex.png */,
+				FCA41B9118A034C700E06903 /* Dart_Slash.png */,
+				FCDC891118931F8D00EEC958 /* Images.xcassets */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		FCDC88ED18931F8D00EEC958 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +144,7 @@
 		FCDC88F818931F8D00EEC958 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC1BDF0E18A2B00900590FA2 /* libOCMock.a */,
 				FCDC88F918931F8D00EEC958 /* Foundation.framework */,
 				FCDC88FB18931F8D00EEC958 /* CoreGraphics.framework */,
 				FCDC88FD18931F8D00EEC958 /* UIKit.framework */,
@@ -118,6 +156,7 @@
 		FCDC88FF18931F8D00EEC958 /* Cricket Scoreboard */ = {
 			isa = PBXGroup;
 			children = (
+				FCA41B8B18A0347D00E06903 /* Resources */,
 				FCDC890818931F8D00EEC958 /* AppDelegate.h */,
 				FCDC890918931F8D00EEC958 /* AppDelegate.m */,
 				FCDC890B18931F8D00EEC958 /* Main.storyboard */,
@@ -127,8 +166,8 @@
 				FC8D542A1898338000EA0C59 /* DartNumberViewController.m */,
 				FC6B45BD189C21A1005B54C4 /* DartNumberModel.h */,
 				FC6B45BE189C21A1005B54C4 /* DartNumberModel.m */,
-				FCDC891118931F8D00EEC958 /* Images.xcassets */,
 				FCDC890018931F8D00EEC958 /* Supporting Files */,
+				FC1BDF1018A2B06200590FA2 /* DartNumberModelTest.m */,
 			);
 			path = "Cricket Scoreboard";
 			sourceTree = "<group>";
@@ -147,7 +186,6 @@
 		FCDC891E18931F8D00EEC958 /* Cricket ScoreboardTests */ = {
 			isa = PBXGroup;
 			children = (
-				FCDC892418931F8D00EEC958 /* Cricket_ScoreboardTests.m */,
 				FCDC891F18931F8D00EEC958 /* Supporting Files */,
 			);
 			path = "Cricket ScoreboardTests";
@@ -209,6 +247,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Jon;
 				TargetAttributes = {
+					FCDC88F518931F8D00EEC958 = {
+						DevelopmentTeam = W5EC94YWFS;
+					};
 					FCDC891618931F8D00EEC958 = {
 						TestTargetID = FCDC88F518931F8D00EEC958;
 					};
@@ -238,9 +279,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCA41B9418A034C700E06903 /* Dart_Closed@2x.png in Resources */,
+				FCA41B9D18A050BC00E06903 /* Dart_Minus.png in Resources */,
 				FCDC891218931F8D00EEC958 /* Images.xcassets in Resources */,
+				FCA41BA018A08B8000E06903 /* Dart_Closed.png in Resources */,
 				FCDC890418931F8D00EEC958 /* InfoPlist.strings in Resources */,
 				FCDC890D18931F8D00EEC958 /* Main.storyboard in Resources */,
+				FCA41B9618A034C700E06903 /* Dart_Slash.png in Resources */,
+				FCA41B9E18A050BC00E06903 /* Dart_Plus.png in Resources */,
+				FCA41B9518A034C700E06903 /* Dart_Ex.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCDC892518931F8D00EEC958 /* Cricket_ScoreboardTests.m in Sources */,
+				FC1BDF1118A2B06200590FA2 /* DartNumberModelTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,11 +440,26 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cricket Scoreboard/Cricket Scoreboard-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../ThirdParty/OCMock/iOS/**",
+				);
 				INFOPLIST_FILE = "Cricket Scoreboard/Cricket Scoreboard-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../../ThirdParty/OCMock/iOS/**",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -408,11 +470,26 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cricket Scoreboard/Cricket Scoreboard-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../ThirdParty/OCMock/iOS/**",
+				);
 				INFOPLIST_FILE = "Cricket Scoreboard/Cricket Scoreboard-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../../ThirdParty/OCMock/iOS/**",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -434,6 +511,10 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Cricket ScoreboardTests/Cricket ScoreboardTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jon/Documents/ThirdParty/OCMock/iOS,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -453,6 +534,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cricket Scoreboard/Cricket Scoreboard-Prefix.pch";
 				INFOPLIST_FILE = "Cricket ScoreboardTests/Cricket ScoreboardTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jon/Documents/ThirdParty/OCMock/iOS,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
