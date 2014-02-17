@@ -36,11 +36,15 @@
 }
 
 - (void)addPlayerOneDartScore {
-    if ([self isPlayerOneClosed] == YES && self.playerTwoClosedStatus != closedStatusComplete) {
-        self.playerOneDartScore += self.dartNumber;
-    }
-    self.playerOneClosedStatus = [self nextClosedStatusForClosedStatus:self.playerOneClosedStatus];
-//	self.playerOneDartScore += self.dartNumber;
+//    if ([self isPlayerOneClosed] == YES && self.playerTwoClosedStatus != closedStatusComplete) {
+//        self.playerOneDartScore += self.dartNumber;
+//    }
+//    self.playerOneClosedStatus = [self nextClosedStatusForClosedStatus:self.playerOneClosedStatus];
+	if (self.playerOneClosedStatus == closedStatusComplete && self.playerTwoClosedStatus != closedStatusComplete) {
+		self.playerOneDartScore += self.dartNumber;
+	} else {
+		self.playerOneClosedStatus = [self nextClosedStatusForClosedStatus:self.playerOneClosedStatus];
+	}
 }
 
 - (void)addPlayerTwoDartScore {
@@ -57,7 +61,9 @@
     } else {
         self.playerOneClosedStatus = [self previousClosedStatusForClosedStatus:self.playerOneClosedStatus];
     }
-//	self.playerOneDartScore = 0;
+//	if (self.playerOneDartScore > 0) {
+//		self.playerOneDartScore = self.playerOneDartScore - self.dartNumber;
+//	}
 }
 
 - (void)subtractPlayerTwoDartScore {
@@ -66,6 +72,9 @@
     } else {
         self.playerTwoClosedStatus = [self previousClosedStatusForClosedStatus:self.playerTwoClosedStatus];
     }
+//	if(self.playerTwoDartScore > 0) {
+//		self.playerTwoDartScore = self.playerTwoDartScore - self.dartNumber;
+//	}
 }
 
 - (ClosedStatus)nextClosedStatusForClosedStatus:(ClosedStatus)previousClosedStatus {
