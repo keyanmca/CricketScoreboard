@@ -53,10 +53,12 @@
 		NSInteger plusMinusCellHeight = 104.0;
 		
 		self.playerOneMinusButton = [UIButton buttonWithType:UIButtonTypeSystem];
-		self.playerOneMinusButton.frame = CGRectMake(0.0, 0.0, 165.0, plusMinusCellHeight);
 		[self.playerOneMinusButton setTitle:[NSString stringWithFormat:@"-"] forState:UIControlStateNormal];
 		self.playerOneMinusButton.titleLabel.font = [UIFont systemFontOfSize:50];
 		[self.playerOneMinusButton setTitleColor:self.borderColor forState:UIControlStateNormal];
+		
+		
+		self.playerOneMinusButton.frame = CGRectMake(0.0, 0.0, 165.0, plusMinusCellHeight);
 		[self.playerOneMinusButton addTarget:self action:@selector(playerOneMinusButtonTapped) forControlEvents:UIControlEventTouchUpInside];
 		[self.view addSubview:self.playerOneMinusButton];
 		
