@@ -1,0 +1,3 @@
+[submodule "Integration Tests/Subliminal"]
+	path = Integration Tests/Subliminal
+	url = https://github.com/inkling/Subliminal.git
